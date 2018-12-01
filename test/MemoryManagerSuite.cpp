@@ -25,8 +25,8 @@
 #include <gtest/gtest.h>
 
 #include <uriparser/Uri.h>
-#include "../src/UriMemory.h"
 
+extern "C" UriMemoryManager defaultMemoryManager;
 
 namespace {
 
