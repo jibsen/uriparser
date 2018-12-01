@@ -23,7 +23,9 @@
 #include <stdio.h>
 
 
-#include <config.h>  // for PACKAGE_VERSION
+#ifdef HAVE_CONFIG_H
+# include <config.h>  // for PACKAGE_VERSION
+#endif
 #include <uriparser/UriBase.h>
 
 
