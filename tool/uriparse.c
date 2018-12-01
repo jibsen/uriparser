@@ -43,8 +43,6 @@
 #ifdef _WIN32
 # include <winsock2.h>
 # include <ws2tcpip.h>
-WINSOCK_API_LINKAGE const char WSAAPI inet_ntop(
-		int af, const void *src, char *dst, socklen_t size);
 #else
 # include <sys/socket.h>
 # include <arpa/inet.h>
