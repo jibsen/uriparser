@@ -11,17 +11,20 @@ endif()
 # For compatibility with this in the future, we use variables with DOXYGEN_
 # prefix when generating the Doxyfile with configure_file().
 
-# Qt help generator (.qch)
-find_program(qhg_executable qhelpgenerator)
-if(qhg_executable)
+# Qt Help Generator (.qch)
+find_program(DOXYGEN_QHG_LOCATION
+  NAMES qhelpgenerator qhelpgenerator-qt5
+  DOC "Qt Help Generator used to compile Qt help projects"
+)
+if(DOXYGEN_QHG_LOCATION)
+  message(STATUS "Found Qt Help Generator: ${DOXYGEN_QHG_LOCATION}")
   set(DOXYGEN_GENERATE_QHP YES)
-  set(DOXYGEN_QHG_LOCATION ${qhg_executable})
 endif()
-unset(qhg_executable)
 
 # HTML Help compiler (.chm)
 find_package(HTMLHelp)
 if(HTML_HELP_COMPILER)
+  message(STATUS "Found HTML Help compiler: ${HTML_HELP_COMPILER}")
   set(DOXYGEN_GENERATE_HTMLHELP YES)
   set(DOXYGEN_SEARCHENGINE NO)
   set(DOXYGEN_HHC_LOCATION ${HTML_HELP_COMPILER})
